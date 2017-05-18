@@ -1,0 +1,85 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Protractor",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/protractor/built/cli.js",
+            "stopOnEntry": false,
+            "args": ["${workspaceRoot}/e2e/protractor.dev.conf.js","--browser=firefox","debug","--stackTrace","--baseUrl=http://localhost:7080/","--verbose"],
+            // "args": ["${workspaceRoot}/e2e/protractor.dev.conf.js","--browser=firefox","debug","--stackTrace","--baseUrl=http://localhost:7080/",],
+
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "externalConsole": false,
+            "sourceMaps": false,
+            "outDir": null
+        },
+        {
+            "name": "Karma",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/karma/bin/karma",
+            "stopOnEntry": true,
+            "args": ["start", "--browsers=Chrome","--log-level=error","--single-run=false"],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "externalConsole": false,
+            "sourceMaps": false,
+            "outDir": null
+        },
+        // {
+        //   "name": "Launch localhost with sourcemaps",
+        //   "type": "chrome",
+        //   "request": "launch",
+        //   "url": "http://localhost:9876/",
+        //   "sourceMaps": true,
+        //   "webRoot": "${workspaceRoot}"
+        // },
+        {
+          "name": "Attach with sourcemaps",
+          "type": "chrome",
+          "request": "attach",
+          "port": 9222,
+          "sourceMaps": true,
+          "webRoot": "${workspaceRoot}"
+        },
+        {
+            "name": "Attach",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "address": "localhost",
+            "restart": false,
+            "sourceMaps": false,
+            "outDir": null,
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": null
+        },
+        {
+            "name": "Attach to Process",
+            "type": "node",
+            "request": "attach",
+            "processId": "${command.PickProcess}",
+            "port": 5858,
+            "sourceMaps": false,
+            "outDir": null
+        }
+    ]
+}
